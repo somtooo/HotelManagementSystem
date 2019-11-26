@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="895.0" prefWidth="1280.0" style="-fx-background-image: url(/login.jpg);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loginScreen.loginScreenController">
+   <children>
+      <Pane layoutX="269.0" layoutY="77.0" opacity="0.82" prefHeight="741.0" prefWidth="742.0" style="-fx-background-color: #fff;">
+         <children>
+            <JFXTextField focusColor="#09e2a7" layoutX="187.0" layoutY="474.0" prefHeight="31.0" prefWidth="369.0" promptText="Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField focusColor="#09e2a7" layoutX="187.0" layoutY="394.0" prefHeight="31.0" prefWidth="369.0" promptText="Username">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton buttonType="RAISED" layoutX="380.0" layoutY="590.0" prefHeight="45.0" prefWidth="134.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Close" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="230.0" layoutY="590.0" prefHeight="45.0" prefWidth="134.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Login" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="288.0" fitWidth="310.0" layoutX="216.0" layoutY="61.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../media/loginTopPhoto.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
