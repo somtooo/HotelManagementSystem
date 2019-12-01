@@ -3,10 +3,11 @@ package helperFunctions;
 import com.jfoenix.controls.JFXTextField;
 import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
-public class CheckLoginFields {
+public class HelperFunctions {
 
     public static void checkLoginField(JFXTextField field, Boolean bothFieldsEmpty) {
         System.out.println(field.getId());
@@ -23,5 +24,13 @@ public class CheckLoginFields {
             notifications.darkStyle();
             notifications.show();
 
+    }
+
+    public static void setStyle(Pane anyPane, boolean mouseEntered){
+        if (mouseEntered){
+            anyPane.setStyle("-fx-background-color: white; -fx-background-radius: 6px");
+        }else {
+            anyPane.setStyle("-fx-background-color:#377ce8; -fx-background-radius: 6px");
+        }
     }
 }

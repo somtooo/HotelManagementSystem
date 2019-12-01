@@ -4,27 +4,15 @@ import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
 import database.DBConnection;
-import helperFunctions.CheckLoginFields;
+import helperFunctions.HelperFunctions;
 import helperFunctions.CreateNewStage;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
-import org.controlsfx.control.cell.ImageGridCell;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,9 +33,9 @@ public class loginScreenController extends CreateNewStage {
     @FXML
     private  void loginButton(MouseEvent event){
         if (username.getText().equals("")){
-            CheckLoginFields.checkLoginField(username,false);
+            HelperFunctions.checkLoginField(username,false);
         }else if (password.getText().equals("")){
-           CheckLoginFields.checkLoginField(password,false);
+           HelperFunctions.checkLoginField(password,false);
         }else {
             boolean isExist = false;
             String userPass = "";
@@ -78,7 +66,7 @@ public class loginScreenController extends CreateNewStage {
                         }
                     }
                 }else {
-                    CheckLoginFields.checkLoginField(username,true);
+                    HelperFunctions.checkLoginField(username,true);
                 }
             } catch (SQLException e) {
                 Logger.getLogger(loginScreenController.class.getName()).log(Level.SEVERE, null, e);
