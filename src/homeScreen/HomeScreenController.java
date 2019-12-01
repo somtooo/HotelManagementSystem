@@ -3,14 +3,19 @@ package homeScreen;
 import helperFunctions.CreateNewStage;
 import helperFunctions.HelperFunctions;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 
 public class HomeScreenController extends CreateNewStage {
+    public StackPane stackpane;
+    private HelperFunctions helperFunctions = new HelperFunctions();
     public Pane reservation;
     public Pane availableRooms;
     public Pane customerInfo;
     public Pane logout;
     public Pane exit;
+    public AnchorPane anchorpane;
 
     public void reservationMouseHover(MouseEvent event) {
         HelperFunctions.setStyle(reservation,false);
@@ -58,18 +63,22 @@ public class HomeScreenController extends CreateNewStage {
     }
 
     public void openReservationScreen(MouseEvent event) {
-
+        newStage("../reservationScreen/reservationScreen.fxml",anchorpane);
     }
 
     public void openAvailableRoomsScreen(MouseEvent event) {
+        newStage("../availableRoomsScreen/availableRooms.fxml",anchorpane);
     }
 
     public void openCustomerInfoScreen(MouseEvent event) {
+        newStage("../customerInfoScreen/customerInfoScreen.fxml",anchorpane);
     }
 
     public void logout(MouseEvent event) {
+        helperFunctions.closeWindow(stackpane,true,"../loginScreen/loginScreen.fxml",anchorpane);
     }
 
     public void exit(MouseEvent event) {
+        helperFunctions.closeWindow(stackpane,false);
     }
 }
