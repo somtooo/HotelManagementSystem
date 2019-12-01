@@ -2,8 +2,6 @@ package splashScreen;
 
 import helperFunctions.CreateNewStage;
 import javafx.animation.FadeTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -29,7 +27,7 @@ public class splashScreenController  extends CreateNewStage implements Initializ
         fadeTransition.play();
         fadeTransition.setOnFinished(event -> {
             Stage loginScreen = new Stage();
-            newStage(loginScreen,"../loginScreen/loginScreen.fxml",anchorPane);
+            newStage("../loginScreen/loginScreen.fxml",anchorPane);
         });
     }
 }

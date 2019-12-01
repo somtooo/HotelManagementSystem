@@ -1,6 +1,5 @@
 package helperFunctions;
 
-import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,7 +8,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import loginScreen.loginScreenController;
 
-import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,9 +15,9 @@ import java.util.logging.Logger;
 public class CreateNewStage {
 
 
-    public void newStage(Stage newStageName, String fxmlName, AnchorPane username){
+    public void newStage(String fxmlName, AnchorPane username){
         System.out.println("I was called");
-        newStageName = new Stage();
+        Stage newStageName = new Stage();
         Parent root = null;
 
         try {

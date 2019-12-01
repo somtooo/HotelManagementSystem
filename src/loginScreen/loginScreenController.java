@@ -1,7 +1,4 @@
 package loginScreen;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
 import database.DBConnection;
 import helperFunctions.HelperFunctions;
@@ -10,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -21,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class loginScreenController extends CreateNewStage {
+    HelperFunctions helperFunctions = new HelperFunctions();
     @FXML
     private JFXTextField username;
     @FXML
@@ -58,11 +55,11 @@ public class loginScreenController extends CreateNewStage {
                         if (userType.equals("admin")){
                             //if user is admin --> Admin Screen
                             Stage adminScreen = new Stage();
-                            newStage(adminScreen,"../adminScreen/adminScreen.fxml",anchorPane);
+                            newStage("../adminScreen/adminScreen.fxml",anchorPane);
                         }else {
                             //if user is normal --> Home Screen
                             Stage homeScreen = new Stage();
-                            newStage(homeScreen, "../homeScreen/homeScreen.fxml",anchorPane);
+                            newStage("../homeScreen/homeScreen.fxml",anchorPane);
                         }
                     }
                 }else {
@@ -74,24 +71,11 @@ public class loginScreenController extends CreateNewStage {
 
         }
 
-
-
     }
 
     @FXML
     private void closeButton(MouseEvent event){
-
-        JFXDialogLayout dialogLayout = new JFXDialogLayout();
-        dialogLayout.setHeading(new Text("Close"));
-        dialogLayout.setBody(new Text("Do you want to exit!"));
-        JFXButton ok = new JFXButton("OK");
-        JFXButton cancel = new JFXButton("Cancel");
-        JFXDialog dialog = new JFXDialog(stackPane, dialogLayout, JFXDialog.DialogTransition.CENTER);
-        ok.setOnAction(event12 -> System.exit(0));
-        cancel.setOnAction(event1 -> dialog.close());
-        dialogLayout.setActions(ok,cancel);
-        dialog.show();
-
+        helperFunctions.closeWindow(stackPane,false);
     }
 
 

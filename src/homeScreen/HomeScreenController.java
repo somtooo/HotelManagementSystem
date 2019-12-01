@@ -1,10 +1,11 @@
 package homeScreen;
 
+import helperFunctions.CreateNewStage;
 import helperFunctions.HelperFunctions;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-public class HomeScreenController {
+public class HomeScreenController extends CreateNewStage {
     public Pane reservation;
     public Pane availableRooms;
     public Pane customerInfo;
@@ -54,5 +55,21 @@ public class HomeScreenController {
     public void exitMouseExit(MouseEvent event) {
         HelperFunctions.setStyle(exit,true);
 
+    }
+
+    public void openReservationScreen(MouseEvent event) {
+
+    }
+
+    public void openAvailableRoomsScreen(MouseEvent event) {
+    }
+
+    public void openCustomerInfoScreen(MouseEvent event) {
+    }
+
+    public void logout(MouseEvent event) {
+    }
+
+    public void exit(MouseEvent event) {
     }
 }
