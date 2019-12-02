@@ -1,9 +1,8 @@
 package helperFunctions;
-
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
-import com.jfoenix.controls.JFXTextField;
+import availableRoomsScreen.AvailableRooms;
+import com.jfoenix.controls.*;
+import database.Room;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -12,10 +11,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-import sun.plugin.javascript.navig.Anchor;
-
-import java.util.Stack;
-import java.util.concurrent.Callable;
 
 public class HelperFunctions extends CreateNewStage {
 
@@ -71,6 +66,53 @@ public class HelperFunctions extends CreateNewStage {
             cancel.setOnAction(event1 -> dialog.close());
             dialogLayout.setActions(ok, cancel);
             dialog.show();
+        }
+    }
+
+    public static JFXTreeTableColumn<Room, String> insertColumn(String text){
+        switch (text) {
+            case "Room id":
+                JFXTreeTableColumn<Room, String> room_id = new JFXTreeTableColumn<>(text);
+                room_id.setPrefWidth(100);
+                room_id.setCellValueFactory(param -> param.getValue().getValue().id);
+                return room_id;
+            case "Room Type":
+                JFXTreeTableColumn<Room, String> roomType = new JFXTreeTableColumn<>(text);
+                roomType.setPrefWidth(100);
+                roomType.setCellValueFactory(param -> param.getValue().getValue().roomType);
+                return roomType;
+            case "Room Num":
+                JFXTreeTableColumn<Room, String> room_number = new JFXTreeTableColumn<>(text);
+                room_number.setPrefWidth(100);
+                room_number.setCellValueFactory(param -> param.getValue().getValue().roomNumber);
+                return room_number;
+            case "People":
+                JFXTreeTableColumn<Room, String> num_of_people = new JFXTreeTableColumn<>(text);
+                num_of_people.setPrefWidth(70);
+                num_of_people.setCellValueFactory(param -> param.getValue().getValue().numberOfPeople);
+                return num_of_people;
+            case "Floor":
+                JFXTreeTableColumn<Room, String> floor_number = new JFXTreeTableColumn<>(text);
+                floor_number.setPrefWidth(100);
+                floor_number.setCellValueFactory(param -> param.getValue().getValue().floorNumber);
+                return floor_number;
+            case "Room Phone":
+                JFXTreeTableColumn<Room, String> room_phone = new JFXTreeTableColumn<>(text);
+                room_phone.setPrefWidth(100);
+                room_phone.setCellValueFactory(param -> param.getValue().getValue().roomPhone);
+                return room_phone;
+            case "Room Price":
+                JFXTreeTableColumn<Room, String> room_price = new JFXTreeTableColumn<>(text);
+                room_price.setPrefWidth(100);
+                room_price.setCellValueFactory(param -> param.getValue().getValue().roomPrice);
+                return room_price;
+            case "Room Status":
+                JFXTreeTableColumn<Room, String> room_status = new JFXTreeTableColumn<>(text);
+                room_status.setPrefWidth(100);
+                room_status.setCellValueFactory(param -> param.getValue().getValue().roomStatus);
+                return room_status;
+            default:
+                throw new IllegalArgumentException("Use matching text");
         }
     }
 }

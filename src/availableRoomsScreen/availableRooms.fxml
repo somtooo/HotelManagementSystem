@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="895.0" prefWidth="1280.0" style="-fx-background-image: url(/homeScreen.jpg)" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="availableRoomsScreen.AvailableRooms">
    <children>
-      <JFXTreeTableView layoutX="477.0" layoutY="17.0" opacity="0.89" prefHeight="865.0" prefWidth="788.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="477.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <JFXTreeTableView fx:id="treeView" layoutX="477.0" layoutY="17.0" opacity="0.89" prefHeight="865.0" prefWidth="788.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="477.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
       <Pane layoutX="66.0" layoutY="12.0" opacity="0.89" prefHeight="865.0" prefWidth="433.0" style="-fx-background-color: #ffff; -fx-background-radius: 6px;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="832.0" AnchorPane.topAnchor="15.0">
          <children>
             <Pane layoutX="18.0" layoutY="146.0" prefHeight="173.0" prefWidth="398.0" style="-fx-border-radius: 15; -fx-border-color: #ccc; -fx-border-width: 2px;">
