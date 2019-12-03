@@ -71,7 +71,7 @@ public class HomeScreenController extends CreateNewStage {
     }
 
     public void openCustomerInfoScreen(MouseEvent event) {
-        newStage("../customerInfoScreen/customerInfoScreen.fxml",anchorpane);
+        newStage("../customerScreen/customerScreen.fxml",anchorpane);
     }
 
     public void logout(MouseEvent event) {

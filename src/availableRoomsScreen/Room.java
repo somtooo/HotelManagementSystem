@@ -1,11 +1,7 @@
-package database;
+package availableRoomsScreen;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
-import javafx.util.Callback;
 
 
 public class Room extends RecursiveTreeObject<Room> {

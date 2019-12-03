@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class loginScreenController extends CreateNewStage {
-    HelperFunctions helperFunctions = new HelperFunctions();
+    private HelperFunctions helperFunctions = new HelperFunctions();
     @FXML
     private JFXTextField username;
     @FXML

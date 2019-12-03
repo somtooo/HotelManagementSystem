@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="customerScreen.CustomerScreen"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="895.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customerScreen.CustomerScreen" style="-fx-background-image: url(/customerScreen.jpg)">
+   <children>
+      <AnchorPane fx:id="anchorpane" prefHeight="895.0" prefWidth="1280.0">
+         <children>
+            <JFXTreeTableView fx:id="treeView" layoutX="23.0" layoutY="12.0" opacity="0.8" prefHeight="766.0" prefWidth="1235.0" style="-fx-background-color: #fff; -fx-background-radius: 6px;" stylesheets="@../availableRoomsScreen/roomScreen.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+            <Pane layoutX="24.0" layoutY="796.0" opacity="0.8" prefHeight="80.0" prefWidth="1235.0" style="-fx-background-color: #fff; -fx-background-radius: 6px;">
+               <children>
+                  <JFXTextField fx:id="searchByRoomNumber" focusColor="#09e2a7" labelFloat="true" layoutX="607.0" layoutY="25.0" prefHeight="31.0" prefWidth="277.0" promptText="Search by room number">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton buttonType="RAISED" layoutX="478.0" layoutY="20.0" onMouseClicked="#searchByRoomNumber" prefHeight="40.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Search" textFill="WHITE" />
+                  <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="20.0" onMouseClicked="#back" prefHeight="40.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Back" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -2,9 +2,9 @@ package availableRoomsScreen;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import database.DBConnection;
-import database.Room;
 import helperFunctions.CreateNewStage;
 import helperFunctions.HelperFunctions;
+import helperFunctions.InsertColumns;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,14 +40,14 @@ public class AvailableRooms extends CreateNewStage implements Initializable {
     }
 
     public void loadAllRooms(String sql){
-        JFXTreeTableColumn<Room, String> room_id = HelperFunctions.insertColumn("Room id");
-        JFXTreeTableColumn<Room, String> room_type = HelperFunctions.insertColumn("Room Type");
-        JFXTreeTableColumn<Room, String> room_number = HelperFunctions.insertColumn("Room Num");
-        JFXTreeTableColumn<Room, String> num_of_people = HelperFunctions.insertColumn("People");
-        JFXTreeTableColumn<Room, String> floor_number = HelperFunctions.insertColumn("Floor");
-        JFXTreeTableColumn<Room, String> room_phone = HelperFunctions.insertColumn("Room Phone");
-        JFXTreeTableColumn<Room, String> room_price = HelperFunctions.insertColumn("Room Price");
-        JFXTreeTableColumn<Room, String> room_status = HelperFunctions.insertColumn("Room Status");
+        JFXTreeTableColumn<Room, String> room_id = InsertColumns.insertColumnForRoom("Room id");
+        JFXTreeTableColumn<Room, String> room_type = InsertColumns.insertColumnForRoom("Room Type");
+        JFXTreeTableColumn<Room, String> room_number = InsertColumns.insertColumnForRoom("Room Num");
+        JFXTreeTableColumn<Room, String> num_of_people = InsertColumns.insertColumnForRoom("People");
+        JFXTreeTableColumn<Room, String> floor_number = InsertColumns.insertColumnForRoom("Floor");
+        JFXTreeTableColumn<Room, String> room_phone = InsertColumns.insertColumnForRoom("Room Phone");
+        JFXTreeTableColumn<Room, String> room_price = InsertColumns.insertColumnForRoom("Room Price");
+        JFXTreeTableColumn<Room, String> room_status = InsertColumns.insertColumnForRoom("Room Status");
         ObservableList<Room> rooms = FXCollections.observableArrayList();
         Connection connection = DBConnection.getConnection();
         try {
