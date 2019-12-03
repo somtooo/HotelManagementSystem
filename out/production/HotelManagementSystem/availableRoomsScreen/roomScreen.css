@@ -1,0 +1,18 @@
+
+.tree-table-view{
+    -fx-tree-table-color: #09e2a7;
+    -fx-tree-table-rippler-color: rgba(255,0,0,0.9);
+    -fx-rippler-fill:#ffffff;
+}
+
+.tree-table-view:focused .tree-table-row-cell :selected{
+    -fx-background-color: -fx-tree-table-color;
+    -fx-table-cell-border-color: -fx-tree-table-color;
+}
+
+.tree-table-row-cell:hover{
+    -fx-background-color:#fec611;
+}
+.tree-table-row-cell .jfx-rippler{
+    -fx-rippler-fill:#ffffff;
+}
