@@ -15,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import loginScreen.loginScreenController;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,7 +32,7 @@ public class CustomerScreen extends CreateNewStage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadAllCustomers("SELECT * FROM customer");
+        loadAllCustomers("SELECT * FROM heroku_a7d1d4878de55c3.customer");
     }
 
     public void loadAllCustomers(String sql){
@@ -83,10 +85,16 @@ public class CustomerScreen extends CreateNewStage implements Initializable {
     }
 
     public void searchByRoomNumber(MouseEvent event) {
-        loadAllCustomers("SELECT * FROM customer WHERE roomNumber ='"+searchByRoomNumber.getText().trim()+"'");
+        loadAllCustomers("SELECT * FROM heroku_a7d1d4878de55c3.customer WHERE roomNumber ='"+searchByRoomNumber.getText().trim()+"'");
     }
 
     public void back(MouseEvent event) {
-        newStage("../homeScreen/homeScreen.fxml",anchorpane);
+        loginScreenController loginScreenController = new loginScreenController();
+        if (loginScreen.loginScreenController.admin) {
+            newStage("../adminScreen/adminScreen.fxml", anchorpane);
+        }else {
+            newStage("../homeScreen/homeScreen.fxml", anchorpane);
+        }
+
     }
 }

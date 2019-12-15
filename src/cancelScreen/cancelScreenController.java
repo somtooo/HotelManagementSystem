@@ -1,22 +1,29 @@
-package loginScreen;
+package cancelScreen;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
 import database.DBConnection;
-import helperFunctions.HelperFunctions;
 import helperFunctions.CreateNewStage;
+import helperFunctions.HelperFunctions;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import loginScreen.loginScreenController;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class loginScreenController extends CreateNewStage {
+public class cancelScreenController extends CreateNewStage {
     public static   boolean admin = false;
     private HelperFunctions helperFunctions = new HelperFunctions();
     @FXML
@@ -69,7 +76,7 @@ public class loginScreenController extends CreateNewStage {
                     HelperFunctions.checkLoginField(username,true);
                 }
             } catch (SQLException e) {
-                Logger.getLogger(loginScreenController.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(cancelScreenController.class.getName()).log(Level.SEVERE, null, e);
             }
 
         }
@@ -87,9 +94,52 @@ public class loginScreenController extends CreateNewStage {
     }
 
     public void cancelReservation(MouseEvent event) {
-        newStage("../cancelScreen/cancelScreen.fxml",anchorPane);
 
     }
 
-
+    public void delete(MouseEvent event) {
+        if (username.getText().equals("")) {
+            HelperFunctions.checkLoginField(username, false);
+        }
+        else {
+            boolean isExist = false;
+            String cname = username.getText().trim();
+            String sql = "DELETE from heroku_a7d1d4878de55c3.customer where name='" + cname + "'";
+            Connection connection = DBConnection.getConnection();
+            JFXDialogLayout dialogLayout = new JFXDialogLayout();
+            dialogLayout.setHeading(new Text("Delete"));
+            dialogLayout.setBody(new Text("Do you want to delete!"));
+            JFXButton ok = new JFXButton("Yes");
+            JFXButton cancel = new JFXButton("No");
+            JFXDialog dialog = new JFXDialog(stackPane, dialogLayout, JFXDialog.DialogTransition.CENTER);
+            ok.setOnAction(event12 -> {
+                PreparedStatement preparedStatement = null;
+                try {
+                    preparedStatement = connection.prepareStatement(sql);
+                    int resultSet = preparedStatement.executeUpdate();
+                    if (resultSet>0){
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Data update");
+                        alert.setHeaderText("Information Dialog");
+                        alert.setContentText("Data updated successfully");
+                        alert.showAndWait();
+                        newStage("../loginScreen/loginScreen.fxml",anchorPane);
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Data update");
+                        alert.setHeaderText("Information Dialog");
+                        alert.setContentText("No record found in database!");
+                        alert.showAndWait();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+            cancel.setOnAction(event1 -> {
+                newStage("../loginScreen/loginScreen.fxml",anchorPane);
+            });
+            dialogLayout.setActions(ok, cancel);
+            dialog.show();
+        }
+    }
 }

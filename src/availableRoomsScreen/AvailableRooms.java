@@ -36,7 +36,7 @@ public class AvailableRooms extends CreateNewStage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadAllRooms("SELECT * FROM room");
+        loadAllRooms("SELECT * FROM heroku_a7d1d4878de55c3.room");
     }
 
     public void loadAllRooms(String sql){
@@ -74,7 +74,7 @@ public class AvailableRooms extends CreateNewStage implements Initializable {
     }
 
     public void searchByRoomNumber(MouseEvent event) {
-        loadAllRooms("SELECT * FROM room WHERE roomNumber ='"+searchByRoomNumber.getText().trim()+"'");
+        loadAllRooms("SELECT * FROM heroku_a7d1d4878de55c3.room WHERE roomNumber ='"+searchByRoomNumber.getText().trim()+"'");
     }
 
     public void makeAvailable(MouseEvent event) {
@@ -97,7 +97,7 @@ public class AvailableRooms extends CreateNewStage implements Initializable {
             alert.setHeaderText("Information Dialog");
             alert.setContentText("Record updated successfully");
             alert.showAndWait();
-            loadAllRooms("SELECT * FROM `room` WHERE 1");
+            loadAllRooms("SELECT * FROM `heroku_a7d1d4878de55c3.room` WHERE 1");
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Data update");
@@ -122,11 +122,11 @@ public class AvailableRooms extends CreateNewStage implements Initializable {
 
     public void searchByBusy(ActionEvent actionEvent) {
         available.setSelected(false);
-        status = "SELECT * FROM room WHERE roomStatus= 'busy'";
+        status = "SELECT * FROM heroku_a7d1d4878de55c3.room WHERE roomStatus= 'busy'";
     }
 
     public void searchByAvailable(ActionEvent actionEvent) {
         busy.setSelected(false);
-        status = "SELECT * FROM room WHERE roomStatus = 'available'";
+        status = "SELECT * FROM heroku_a7d1d4878de55c3.room WHERE roomStatus = 'available'";
     }
 }

@@ -2,6 +2,7 @@ package helperFunctions;
 import availableRoomsScreen.Room;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import customerScreen.Customer;
+import employeeScreen.Employee;
 
 public class InsertColumns {
 
@@ -131,6 +132,58 @@ public class InsertColumns {
                 total.setCellValueFactory(param -> param.getValue().getValue().total);
                 return total;
 
+            default:
+                throw new IllegalArgumentException("Use matching text");
+        }
+    }
+
+    public static JFXTreeTableColumn<Employee, String> insertColumnForEmployees(String text){
+        switch (text) {
+            case "id":
+                JFXTreeTableColumn<Employee, String> id = new JFXTreeTableColumn<>(text);
+                id.setPrefWidth(65);
+                id.setCellValueFactory(param -> param.getValue().getValue().id);
+                return id;
+            case "username":
+                JFXTreeTableColumn<Employee, String> username = new JFXTreeTableColumn<>(text);
+                username.setPrefWidth(100);
+                username.setCellValueFactory(param -> param.getValue().getValue().username);
+                return username;
+            case "password":
+                JFXTreeTableColumn<Employee, String> password = new JFXTreeTableColumn<>(text);
+                password.setPrefWidth(100);
+                password.setCellValueFactory(param -> param.getValue().getValue().password);
+                return password;
+            case "fullName":
+                JFXTreeTableColumn<Employee, String> fullName = new JFXTreeTableColumn<>(text);
+                fullName.setPrefWidth(100);
+                fullName.setCellValueFactory(param -> param.getValue().getValue().fullName);
+                return fullName;
+            case "address":
+                JFXTreeTableColumn<Employee, String> address = new JFXTreeTableColumn<>(text);
+                address.setPrefWidth(100);
+                address.setCellValueFactory(param -> param.getValue().getValue().address);
+                return address;
+            case "phone":
+                JFXTreeTableColumn<Employee, String> phone = new JFXTreeTableColumn<>(text);
+                phone.setPrefWidth(100);
+                phone.setCellValueFactory(param -> param.getValue().getValue().phone);
+                return phone;
+            case "startDate":
+                JFXTreeTableColumn<Employee, String> startDate = new JFXTreeTableColumn<>(text);
+                startDate.setPrefWidth(100);
+                startDate.setCellValueFactory(param -> param.getValue().getValue().startDate);
+                return startDate;
+            case "salary":
+                JFXTreeTableColumn<Employee, String> salary = new JFXTreeTableColumn<>(text);
+                salary.setPrefWidth(100);
+                salary.setCellValueFactory(param -> param.getValue().getValue().salary);
+                return salary;
+            case "userType":
+                JFXTreeTableColumn<Employee, String> userType = new JFXTreeTableColumn<>(text);
+                userType.setPrefWidth(100);
+                userType.setCellValueFactory(param -> param.getValue().getValue().userType);
+                return userType;
             default:
                 throw new IllegalArgumentException("Use matching text");
         }
