@@ -3,14 +3,22 @@ package splashScreen;
 import helperFunctions.CreateNewStage;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import loginScreen.loginScreenController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class splashScreenController  extends CreateNewStage implements Initializable  {
     @FXML
@@ -26,8 +34,8 @@ public class splashScreenController  extends CreateNewStage implements Initializ
         fadeTransition.setToValue(0);
         fadeTransition.play();
         fadeTransition.setOnFinished(event -> {
-            Stage loginScreen = new Stage();
-            newStage("../loginScreen/loginScreen.fxml",anchorPane);
-        });
+        newStage("../loginScreen/loginScreen.fxml",anchorPane);
+
+    });
     }
 }

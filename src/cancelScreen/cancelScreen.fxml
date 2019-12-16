@@ -15,7 +15,7 @@
          <children>
             <Pane layoutX="269.0" layoutY="77.0" opacity="0.69" prefHeight="741.0" prefWidth="742.0" style="-fx-background-color: #fff;">
                <children>
-                  <JFXTextField fx:id="username" focusColor="#09e2a7" layoutX="187.0" layoutY="394.0" prefHeight="31.0" prefWidth="369.0" promptText="Username" text="Customer name">
+                  <JFXTextField fx:id="username" focusColor="#09e2a7" layoutX="187.0" layoutY="394.0" prefHeight="31.0" prefWidth="369.0" promptText="Username">
                      <font>
                         <Font size="18.0" />
                      </font>
