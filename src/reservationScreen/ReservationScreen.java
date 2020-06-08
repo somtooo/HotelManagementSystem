@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import database.DBConnection;
 import helperFunctions.CreateNewStage;
 import helperFunctions.HelperFunctions;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -15,6 +16,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import loginScreen.loginScreenController;
 
+import java.awt.*;
+import java.awt.print.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -79,6 +82,18 @@ public class ReservationScreen extends CreateNewStage implements Initializable {
 
     }
 
+    public void print(MouseEvent event) {
+        PrinterJob pj = PrinterJob.getPrinterJob();
+        pj.setPrintable(new BillPrintable(),getPageFormat(pj));
+        try {
+            pj.print();
+
+        }
+        catch (PrinterException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public void book(MouseEvent event) {
         int res = 0;
         String sql = "INSERT INTO customer (name,email,address,phone,numOfPeople,paymentType,duration,roomType,roomNumber,startDate,endDate,price,services,total) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -135,8 +150,6 @@ public class ReservationScreen extends CreateNewStage implements Initializable {
         }
     }
 
-    public void print(MouseEvent event) {
-    }
 
     private static int getRandomNumberInRange(int min, int max) {
 
@@ -200,5 +213,123 @@ public class ReservationScreen extends CreateNewStage implements Initializable {
 
 
 
+    }
+
+    public class BillPrintable implements Printable {
+
+
+
+
+        public int print(Graphics graphics, PageFormat pageFormat, int pageIndex)
+                throws PrinterException
+        {
+
+            int result = NO_SUCH_PAGE;
+            if (pageIndex == 0) {
+
+                Graphics2D g2d = (Graphics2D) graphics;
+
+                double width = pageFormat.getImageableWidth();
+
+                g2d.translate((int) pageFormat.getImageableX(),(int) pageFormat.getImageableY());
+
+
+                FontMetrics metrics=g2d.getFontMetrics(new Font("Arial",Font.BOLD,7));
+
+                int idLength=metrics.stringWidth("000");
+                int amtLength=metrics.stringWidth("000000");
+                int qtyLength=metrics.stringWidth("00000");
+                int priceLength=metrics.stringWidth("000000");
+                int prodLength=(int)width - idLength - amtLength - qtyLength - priceLength-17;
+
+
+
+                int productPosition = 0;
+                int discountPosition= prodLength+5;
+                int pricePosition = discountPosition +idLength+10;
+                int qtyPosition=pricePosition + priceLength + 4;
+                int amtPosition=qtyPosition + qtyLength;
+
+
+
+                try{
+                    /*Draw Header*/
+                    int y=20;
+                    int yShift = 10;
+                    int headerRectHeight=15;
+                    int headerRectHeighta=40;
+
+                    String  user_name=customerName.getText();
+                    String phone=email.getText();
+                    String add=address.getText();
+                    String payentType=duration.getText();
+                    String num=numOfPeople.getText();
+
+
+                    g2d.setFont(new Font("Monospaced",Font.PLAIN,9));
+                    g2d.drawString("-------------------------------------",12,y);y+=yShift;
+                    g2d.drawString("      Hotel Bill Receipt        ",12,y);y+=yShift;
+                    g2d.drawString("-------------------------------------",12,y);y+=headerRectHeight;
+
+                    g2d.drawString("-------------------------------------",10,y);y+=yShift;
+                    g2d.drawString("                                     ",10,y);y+=yShift;
+                    g2d.drawString("-------------------------------------",10,y);y+=headerRectHeight;
+                    g2d.drawString("  Name                    " +user_name+"  ",10,y);y+=yShift;
+                    g2d.drawString("  Address                 " +add+"  ",10,y);y+=yShift;
+                    g2d.drawString("  Payment                 " +payentType+"  ",10,y);y+=yShift;
+                    g2d.drawString("  Number Of People        " +num+"  ",10,y);y+=yShift;
+                    g2d.drawString("-------------------------------------",10,y);y+=yShift;
+                    g2d.drawString(" Total amount:      sum=" +total.getText().toString()+"           ",10,y);y+=yShift;
+                    g2d.drawString("-------------------------------------",10,y);y+=yShift;
+                    g2d.drawString("          Hotel Phone Number         ",10,y);y+=yShift;
+                    g2d.drawString("             03111111111             ",10,y);y+=yShift;
+                    g2d.drawString("*************************************",10,y);y+=yShift;
+                    g2d.drawString("    THANKS TO VISIT OUR HOTEL        ",10,y);y+=yShift;
+                    g2d.drawString("*************************************",10,y);y+=yShift;
+
+
+
+                }
+                catch(Exception r){
+                    r.printStackTrace();
+                }
+
+                result = PAGE_EXISTS;
+            }
+            return result;
+        }
+    }
+
+    public PageFormat getPageFormat(PrinterJob pj)
+    {
+
+        PageFormat pf = pj.defaultPage();
+        Paper paper = pf.getPaper();
+
+        double middleHeight =8.0;
+        double headerHeight = 2.0;
+        double footerHeight = 2.0;
+        double width = convert_CM_To_PPI(8);      //printer know only point per inch.default value is 72ppi
+        double height = convert_CM_To_PPI(headerHeight+middleHeight+footerHeight);
+        paper.setSize(width, height);
+        paper.setImageableArea(
+                0,
+                10,
+                width,
+                height - convert_CM_To_PPI(1)
+        );   //define boarder size    after that print area width is about 180 points
+
+        pf.setOrientation(PageFormat.PORTRAIT);           //select orientation portrait or landscape but for this time portrait
+        pf.setPaper(paper);
+
+        return pf;
+    }
+
+    protected static double convert_CM_To_PPI(double cm) {
+        return toPPI(cm * 0.393600787);
+    }
+
+    protected static double toPPI(double inch) {
+        return inch * 72d;
     }
 }

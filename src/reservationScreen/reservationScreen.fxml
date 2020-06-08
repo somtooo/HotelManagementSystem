@@ -132,7 +132,7 @@
                <children>
                   <JFXButton buttonType="RAISED" layoutX="266.0" layoutY="31.0" onMouseClicked="#back" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #09e2a7;" text="Back" textFill="WHITE" />
                   <JFXButton buttonType="RAISED" layoutX="385.0" layoutY="31.0" onMouseClicked="#load" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #09e2a7;" text="Load" textFill="WHITE" />
-                  <JFXButton buttonType="RAISED" layoutX="505.0" layoutY="31.0" onMouseClicked="#rest" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #09e2a7;" text="Rest" textFill="WHITE" />
+                  <JFXButton buttonType="RAISED" layoutX="512.0" layoutY="31.0" onMouseClicked="#rest" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #09e2a7;" text="Reset" textFill="WHITE" />
                   <JFXButton buttonType="RAISED" layoutX="144.0" layoutY="31.0" onMouseClicked="#book" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #09e2a7;" text="Book" textFill="WHITE" />
                   <JFXButton buttonType="RAISED" layoutX="628.0" layoutY="31.0" onMouseClicked="#print" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #09e2a7;" text="Print" textFill="WHITE" />
                </children>

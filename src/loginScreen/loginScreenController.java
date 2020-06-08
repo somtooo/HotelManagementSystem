@@ -82,14 +82,5 @@ public class loginScreenController extends CreateNewStage {
     }
 
 
-    public void selfReservation(MouseEvent event) {
-        newStage("../reservationScreen/reservationScreen.fxml",anchorPane);
-    }
-
-    public void cancelReservation(MouseEvent event) {
-        newStage("../cancelScreen/cancelScreen.fxml",anchorPane);
-
-    }
-
 
 }

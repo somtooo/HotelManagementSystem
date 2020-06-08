@@ -25,12 +25,12 @@
                         <Font size="18.0" />
                      </font>
                   </JFXTextField>
-                  <JFXButton buttonType="RAISED" layoutX="380.0" layoutY="553.0" onMouseClicked="#closeButton" prefHeight="45.0" prefWidth="134.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Close" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="380.0" layoutY="617.0" onMouseClicked="#closeButton" prefHeight="45.0" prefWidth="134.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Close" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="login" buttonType="RAISED" layoutX="230.0" layoutY="553.0" onMouseClicked="#loginButton" prefHeight="45.0" prefWidth="134.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Login" textFill="WHITE">
+                  <JFXButton fx:id="login" buttonType="RAISED" layoutX="230.0" layoutY="617.0" onMouseClicked="#loginButton" prefHeight="45.0" prefWidth="134.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Login" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -40,16 +40,6 @@
                         <Image url="@../media/loginTopPhoto.png" />
                      </image>
                   </ImageView>
-                  <JFXButton buttonType="RAISED" layoutX="230.0" layoutY="653.0" onMouseClicked="#selfReservation" prefHeight="45.0" prefWidth="134.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Reserve" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="380.0" layoutY="653.0" onMouseClicked="#cancelReservation" prefHeight="45.0" prefWidth="152.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Cancel Booking" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </JFXButton>
                </children>
             </Pane>
          </children>
