@@ -71,7 +71,7 @@ public class AdminScreenController extends CreateNewStage {
     }
 
     public void openCustomersScreen(MouseEvent event) {
-        newStage("../customerScreen/customerScreen.fxml",anchorpane);
+        newStage("../customerInfoScreen/CustomerInfoScreen.fxml",anchorpane);
     }
 
     public void logout(MouseEvent event) {

@@ -187,14 +187,14 @@ public class ReservationScreen extends CreateNewStage implements Initializable {
                 Logger.getLogger(loginScreenController.class.getName()).log(Level.SEVERE, null, e);
             }
 
-            double seriveFee = getRandomNumberInRange(12,30) * 0.2;
+            double serviceFee = getRandomNumberInRange(12,30) * 0.2;
             double pricefee = getRandomNumberInRange(400,1000) *0.3;
             double taxfee = pricefee *1.07;
-            double totalfee = seriveFee + pricefee + taxfee;
+            double totalfee = serviceFee + pricefee + taxfee;
 
             price.setText(String.valueOf(pricefee));
-            services.setText(String.valueOf(seriveFee));
-            total.setText(String.valueOf(totalfee));
+            services.setText(String.valueOf(Math.round(serviceFee)));
+            total.setText(String.valueOf(Math.round(totalfee)));
         }
 
 

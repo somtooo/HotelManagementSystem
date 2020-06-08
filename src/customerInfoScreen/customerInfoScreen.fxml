@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane fx:id="stackpane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customerInfoScreen.CustomerInfoScreenController">
+   <children>
+      <AnchorPane fx:id="anchorpane" prefHeight="895.0" prefWidth="1280.0">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="895.0" prefWidth="1280.0" style="-fx-background-image:url(/login.jpg)">
+               <children>
+                  <LineChart fx:id="line" layoutX="50.0" layoutY="47.0" opacity="0.7" prefHeight="650.0" prefWidth="1250.0" style="-fx-background-color: #fff;" title="Customers / Year" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="20.0">
+                     <xAxis>
+                        <CategoryAxis label="Months" side="BOTTOM">
+                           <tickLabelFont>
+                              <Font size="12.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis label="Customers" side="LEFT">
+                           <tickLabelFont>
+                              <Font size="12.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
+                     </yAxis>
+                  </LineChart>
+                  <JFXButton buttonType="RAISED" layoutX="556.0" layoutY="681.0" onMouseClicked="#back" prefHeight="30.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Back" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="695.0" layoutY="681.0" onMouseClicked="#close" prefHeight="30.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: #09e2a7;" text="Close" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
