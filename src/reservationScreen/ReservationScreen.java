@@ -205,7 +205,7 @@ public class ReservationScreen extends CreateNewStage implements Initializable {
             double taxfee = pricefee *1.07;
             double totalfee = serviceFee + pricefee + taxfee;
 
-            price.setText(String.valueOf(pricefee));
+            price.setText(String.valueOf(Math.round(pricefee)));
             services.setText(String.valueOf(Math.round(serviceFee)));
             total.setText(String.valueOf(Math.round(totalfee)));
         }

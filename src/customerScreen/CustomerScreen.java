@@ -90,6 +90,7 @@ public class CustomerScreen extends CreateNewStage implements Initializable {
 
     public void back(MouseEvent event) {
         loginScreenController loginScreenController = new loginScreenController();
+        System.out.println(loginScreen.loginScreenController.admin);
         if (loginScreen.loginScreenController.admin) {
             newStage("../adminScreen/adminScreen.fxml", anchorpane);
         }else {
